@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage">
+
+    <VerticalStackLayout Spacing="20" Padding="20">
+        <Label Text="Konwersja danych" FontSize="Title" HorizontalOptions="Center"/>
+
+        <HorizontalStackLayout Spacing="10"  HorizontalOptions="EndAndExpand">
+            <Label Text="Wybierz typ konwersji:" FontSize="20" VerticalOptions="EndAndExpand"/>
+            <Picker x:Name="TypKonwersjiPicker" WidthRequest="300" HeightRequest="10" SelectedIndexChanged="OnTypChanged">
+                <Picker.Items>
+                <x:String>Długość</x:String>
+                <x:String>Masa</x:String>
+                <x:String>Temperatura</x:String>
+                </Picker.Items>
+            </Picker>
+       </HorizontalStackLayout>
+
+        <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto">
+
+            <VerticalStackLayout Spacing="10">
+                <Label Text="Wprowadź wartość do konwersji:" HorizontalOptions="StartAndExpand" />
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="StartAndExpand">
+                    <Entry x:Name="InputEntry" WidthRequest="250" Keyboard="Numeric"  HorizontalOptions="StartAndExpand"/>
+                    <Picker x:Name="InputUnitPicker" WidthRequest="100"  HorizontalOptions="CenterAndExpand"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" Spacing="10">
+                <Label Text="Wynik konwersji:"/>
+                <HorizontalStackLayout Spacing="10">
+                    <Entry x:Name="OutputEntry" IsReadOnly="True" WidthRequest="250"/>
+                    <Picker x:Name="OutputUnitPicker" WidthRequest="100"/>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Grid>
+        <Button Text="KONWERTUJ" Clicked="OnKonwertuj" WidthRequest="150" HorizontalOptions="CenterAndExpand" />
+    </VerticalStackLayout>
+</ContentPage>
